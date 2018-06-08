@@ -1,2 +1,2 @@
 # AwkTool
-AwkTool for powershell
+AwkTool for powershell , only work with strings
