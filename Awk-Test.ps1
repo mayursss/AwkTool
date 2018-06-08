@@ -1,17 +1,18 @@
-﻿    $FileName = 'C:\temp\test.txt'
+﻿   $FileName = 'C:\temp\test.txt' ## create this file first for testing
     $data= Get-Content $FileName
     $output1 =""
-    # $action = '/ms458j/ print'
-    # $action = '/ms458j/ print $0'
-    # $action = '/ms458j/ print $1'
-    # $action = '/ms458j/ print $2'
-    # $action = '/ms458j/ print $2,$3'
-    # $action = '/ms458j/ print $1,$2,$3'
-     $action = '/ms458j/ print $5,$6,$7'
-    # $action = '/ms458j/ print $5,$9,$1'
-    # $action = '/ms458j/ print $5,$10,$11' ## will show only value for $5
-    #$action = '/ms458j/ print $5,"\t",$2'   ## will "\t" does not work
-    #$expression = $action -match '(\/\w+\/|\/\w+\s+\/|\/\s+\w+\s+\/)'
+    # $action = 'print'
+    # $action = 'print $0'
+    # $action = 'print $1'
+    # $action = 'print $2'
+    # $action = 'print $2,$3'
+    # $action = 'print $1,$2,$3'
+    # $action = 'print $5,$6,$7'
+    # $action = 'print $5,$9,$1'
+    # $action = 'print $5,$10,$11' ## will show only value for $5
+    # $action = 'print $5,"\t",$2'   ## will "\t" does not work
+    # $expression = $action -match '(\/\w+\/|\/\w+\s+\/|\/\s+\w+\s+\/)'
+    
     $action   = $action -replace ',',' ' -split '\s+' ## replace all $ or , to blankspace ' '
     $command  = "$($action -match 'print')"
     $argument = $action -match '\$\d' -replace '\$',''
@@ -39,15 +40,3 @@
         }   
         $output1     
     }
-   
-                 
-    # $D = foreach ($line in $data){
-    # $info = $line -split "\s+"
-    # $hash = [ordered]@{}
-    #     for ($i=0;$i -lt $($info.Length+1);$i++) {
-    #     $hash.add("$i",$info[$i])
-    #     }
-    # [pscustomobject]$hash
-
-    # }
-    # $D.0;$D.1;
